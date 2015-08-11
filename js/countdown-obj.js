@@ -1,13 +1,12 @@
-//---COUNTDOWN OBJECT---//
+//---COUNTDOWN CONSTRUCTOR---//
 function CountDown(yr,m,d,eventname) {
-
     this.yr = yr;
     this.m = m;
     this.d = d;
     this.eventname = eventname; 
 
     //--REMAINING Function--//
-    this.remaining = function () 
+    this.remaining = function ()
 
       var current = "Today is " + eventname + "!";
       var montharray = new Array(
