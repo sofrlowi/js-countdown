@@ -14,7 +14,7 @@ function countdown (yr,m,d,eventname) {
   //Create new Date object "today"
     var today = new Date();
 
-    var todayy = today.getYear();
+    var todayy = today.getFullYear();
     var todaym = today.getMonth();
     var todayd = today.getDate();
     var todayh = today.getHours();
@@ -25,11 +25,14 @@ function countdown (yr,m,d,eventname) {
     futurestring = montharray[m - 1]+ " " + d + ", " + yr;
 
     //Parses difference in time between future and today's date
-      dd = Date.parse(futurestring) - Date.parse(todaystring);
-      dday = Math.floor(dd / (60*60*1000*24) * 1);
-      dhour = Math.floor((dd % (60*60*1000*24))/(60*60*1000) * 1);
-      dmin = Math.floor(((dd % (60*60*1000*24))%(60*60*1000))/(60*1000)*1);
-      dsec = Math.floor((((dd % (60*60*1000*24))%(60*60*1000))%(60*1000))/1000*1);
+      msInDay = 60*60*1000*24;
+      msInHour = 60*60*1000;
+      msInMin = 60*1000;
+      dd = Date.parse(futurestring) - Date.parse(todaystring); //returns milliseconds
+      dday = Math.floor(dd / msInDay);
+      dhour = Math.floor((dd % msInDay) / msInHour * 1);
+      dmin = Math.floor(((dd % msInDay) % msInHour)/msInMin * 1);
+      dsec = Math.floor((((dd % msInDay) % msInHour) % msInMin) / 1000 * 1);
 
     if(dday == 0 && dhour == 0 && dmin == 0 && dsec == 1) {
         // document.forms.count.count2.value = current;
