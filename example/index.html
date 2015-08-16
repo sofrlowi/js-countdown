@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8' />
+  <title>CountDown</title>
+</head>
+<body>
+  <p>
+    Check the console.
+  </p>
+  <button onclick='javascript:console.log(countdown.remaining());'>How much time is left?</button>
+
+  <script src='countdown.js'></script>
+  <script>
+    var countdown = new CountDown("September 1 15:00:00 2015");
+    console.log(countdown.remaining());
+  </script>
+</body>
+</html>
